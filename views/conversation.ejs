@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversation <%= conversation._id %></title>
+    </head>
+
+    <body>
+        <div>
+            <h1>Conversation : <%= conversation._id %>  createdAt: <%= conversation.createdAt %></h1>
+        </div>
+
+        <div>
+            <h3>add a message</h3>
+
+            <form action="/message/<%= conversation._id %>" method="POST">
+                <label>Name</label>
+                <input type="text" id="name" name="name"/> <br>
+
+                <label>Message</label>
+                <input type="text" id="message" name="message" /><br>
+
+                <button>Send</button>
+
+            </form>
+
+            
+        </div>
+
+        <div>
+            <h3>Messages</h3>
+
+
+            <div>
+                <ul>
+                    <% for(let i =0; i < conversation.messages.length; i++) {%>
+                        <p>
+                            <span>id : <%= conversation.messages[i]._id %></span>
+                            <span>createdAt : <%= conversation.messages[i].createdAt %></span>
+                            <span>name : <%= conversation.messages[i].name %></span>
+                            <span>text : <%= conversation.messages[i].text %></span>
+                        </p>
+    
+                    <% } %>
+                </ul>
+        </div>
+    </body>
+</html>

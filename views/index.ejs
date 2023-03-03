@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversations</title>
+    </head>
+
+    <body>
+        <div>
+            <ul>
+                <% for(let i =0; i< conversations.length; i++) {%>
+
+                <li>
+                    <span>
+                        <a href="/conversation/<%= conversations[i]._id %>"> <%= conversations[i]._id %></a>
+                    </span><br/>
+                    <span> <strong>Created at:</strong>  <%= conversations[i].createdAt %></span><br/>
+                </li>
+
+                <% } %>
+            </ul>
+        </div>
+    </body>
+</html>
